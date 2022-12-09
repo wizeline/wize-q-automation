@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "WizeQ QA Automation",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "login": "npx playwright test .pom/tests/login.spec.ts --headed",
+    "example": "npx playwright test .pom/tests/example.spec.ts --headed"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wizeline/wize-q-automation.git"
@@ -17,5 +20,8 @@
   "homepage": "https://github.com/wizeline/wize-q-automation#readme",
   "devDependencies": {
     "@playwright/test": "^1.28.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
   }
 }

@@ -4,7 +4,7 @@
   "description": "WizeQ QA Automation",
   "main": "index.js",
   "scripts": {
-    "login": "npx playwright test .pom/tests/login.spec.ts --headed",
+    "login": "npx playwright test .pom/tests/login.spec.ts",
     "example": "npx playwright test .pom/tests/example.spec.ts --headed"
   },
   "repository": {

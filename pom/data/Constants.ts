@@ -8,6 +8,6 @@ export const CREDENTIALS= {
     INVALID_PASSWORD: 'Abcder13452'
 }
 
-export const URLS ={
+export const URLS = {
     LOGIN: 'https://questions-develop.wizeline.com/login'
 }

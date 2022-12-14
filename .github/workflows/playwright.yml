@@ -18,7 +18,10 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Create ENV file
-      run: echo "${{ secrets.ENV_FILE }}" > .env
+      run: |
+        touch .env
+        echo EMAIL=${{ secrets.EMAIL }} >> .env
+        cat .env
     - name: Run Playwright tests
       run: npm run login
     - uses: actions/upload-artifact@v3

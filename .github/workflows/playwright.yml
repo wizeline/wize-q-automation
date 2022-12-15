@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [ main, master ]
 jobs:
-  test:
+  Tests:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -17,8 +17,15 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+    - name: Create ENV file
+      run: |
+        touch .env
+        echo EMAIL=${{ secrets.EMAIL }} >> .env
+        echo PASSWORD=${{ secrets.PASSWORD }} >> .env
+        echo BASE_URL=${{ secrets.BASE_URL }} >> .env
+        cat .env
     - name: Run Playwright tests
-      run: npx playwright test
+      run: npm run login
     - uses: actions/upload-artifact@v3
       if: always()
       with:

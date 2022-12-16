@@ -9,7 +9,7 @@ export const CREDENTIALS= {
 }
 
 export const URLS = {
-    LOGIN: 'https://questions-develop.wizeline.com/login'
+    LOGIN: 'https://questions-develop.wizeline.com/login',
 }
 
 export const LOCATIONS = {

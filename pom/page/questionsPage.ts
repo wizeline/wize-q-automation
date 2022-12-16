@@ -38,4 +38,9 @@ export class QuestionsPage {
 
  }
 
+
+ async validateQuestion(){
+  await this.page.getByText("a few seconds ago").first().click()
+ }
+
 }

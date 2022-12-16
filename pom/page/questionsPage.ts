@@ -23,8 +23,8 @@ export class QuestionsPage {
   }
 
  async askQuestion(user,department,location) {
+    await this.homePage.acceptBtn.click()
     await this.homePage.askBtn.click()
-    
     await this.questionInput.type("This is a test question...??")
     await this.locationDropdown.click()
     await this.page.getByRole("menuitem",{name:`${location}`}).click()

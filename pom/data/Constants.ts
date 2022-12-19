@@ -9,5 +9,19 @@ export const CREDENTIALS= {
 }
 
 export const URLS = {
-    LOGIN: 'https://questions-develop.wizeline.com/login'
+    LOGIN: 'https://questions-develop.wizeline.com/login',
+}
+
+export const LOCATIONS = {
+    GDL: 'Guadalajara',
+    REMOTE_MX: 'Remote - México'
+}
+
+export const DEPARTMENT = {
+    IDK: "I don't know whom to assign it."
+}
+
+export const USERS = {
+    ANONYMOUS: "Anonymous",
+    STANDAR: "Standar"
 }

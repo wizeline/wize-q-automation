@@ -1,5 +1,6 @@
 import { expect, Locator, Page } from '@playwright/test';
 import { URLS } from '../data/Constants';
+import { HomePage } from './homePage';
 
 export class LoginPage {
   readonly page: Page;
@@ -9,6 +10,7 @@ export class LoginPage {
   readonly askQBtn: Locator;
   readonly continueBtn: Locator;
   readonly erroMsg: Locator;
+  readonly homePage: HomePage
 
 
 
@@ -21,6 +23,7 @@ export class LoginPage {
     this.continueBtn = page.getByText('Continue',{ exact: true })
     this.askQBtn = page.locator('#ask-button')
     this.erroMsg = page.getByText('Wrong email or password')
+    this.homePage = new HomePage(page)
   }
 
 

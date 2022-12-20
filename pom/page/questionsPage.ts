@@ -1,5 +1,6 @@
 import { expect, Locator, Page } from '@playwright/test';
 import { HomePage } from './homePage';
+import { QUESTIONS } from '../data/Constants';
 
 
 export class QuestionsPage {
@@ -12,6 +13,7 @@ export class QuestionsPage {
   readonly homePage: HomePage;
 
 
+
   constructor(page: Page) {
     this.page = page;
     this.questionInput = page.getByRole("textbox")
@@ -19,6 +21,7 @@ export class QuestionsPage {
     this.departmentDropdown = page.locator("#department-dropdown-btn")
     this.askBtn = page.locator("#submit-btn")
     this.homePage = new HomePage(page)
+
     
   }
 
@@ -39,8 +42,15 @@ export class QuestionsPage {
  }
 
 
- async validateQuestion(){
-  await this.page.getByText("a few seconds ago").first().click()
+ async validateQuestion(user,question,location){
+   await expect(this.homePage.questions
+        .filter({ hasText: `${QUESTIONS.TIME}` })
+        .filter({has: this.page.getByRole('link',{ name: `${user}` })})
+        .filter({has: this.page.getByRole('link',{ name: `${question}` })})
+        .filter({has: this.page.getByText(`${location}`)})
+        ).toBeVisible()
+          return true
+      
  }
 
 }

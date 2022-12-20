@@ -23,5 +23,15 @@ export const DEPARTMENT = {
 
 export const USERS = {
     ANONYMOUS: "Anonymous",
-    STANDAR: "Standar"
+    STANDAR: "Standar",
+}
+
+export const MESSAGES = {
+    QUESTION_CREATED: "Question has been created succesfully!"
+}
+
+export const QUESTIONS = {
+    USER_NAME: "undefined undefined",
+    QUESTION_TEST: "This is a test question...??",
+    TIME: "a few seconds ago"
 }

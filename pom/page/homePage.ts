@@ -6,6 +6,7 @@ export class HomePage {
   readonly alert: Locator;
   readonly askBtn: Locator;
   readonly acceptBtn: Locator;
+  readonly questions: Locator;
 
 
 
@@ -14,6 +15,7 @@ export class HomePage {
     this.alert = page.getByRole("alert")
     this.askBtn = page.getByRole("link",{name:"Ask Question"})
     this.acceptBtn = page.getByRole("button",{name:"Accept"})
+    this.questions = page.getByRole('article')
     
   }
 

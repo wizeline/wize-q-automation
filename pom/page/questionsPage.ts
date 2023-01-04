@@ -1,4 +1,4 @@
-import { expect, Locator, Page } from '@playwright/test';
+import test, { expect, Locator, Page } from '@playwright/test';
 import { HomePage } from './homePage';
 import { QUESTIONS } from '../data/Constants';
 
@@ -47,7 +47,7 @@ export class QuestionsPage {
         .filter({ hasText: `${QUESTIONS.TIME}` })
         .filter({has: this.page.getByRole('link',{ name: `${user}` })})
         .filter({has: this.page.getByRole('link',{ name: `${question}` })})
-        .filter({has: this.page.getByText(`${location}`)})
+        .filter({has: this.page.getByText(`${location}`)}).first()
         ).toBeVisible()
           return true
       

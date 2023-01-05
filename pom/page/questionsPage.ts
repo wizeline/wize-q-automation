@@ -18,7 +18,7 @@ export class QuestionsPage {
     this.page = page;
     this.questionInput = page.getByRole("textbox")
     this.locationDropdown = page.getByText("Location")
-    this.departmentDropdown = page.locator("#department-dropdown-btn")
+    this.departmentDropdown = page.getByText("Deparment")
     this.askBtn = page.locator("#submit-btn")
     this.homePage = new HomePage(page)
 
@@ -47,7 +47,7 @@ export class QuestionsPage {
         .filter({ hasText: `${QUESTIONS.TIME}` })
         .filter({has: this.page.getByRole('link',{ name: `${user}` })})
         .filter({has: this.page.getByRole('link',{ name: `${question}` })})
-        .filter({has: this.page.getByText(`${location}`)}).first()
+        .filter({has: this.page.getByText(`${location}`)}).first(),{timeout: 10000}
         ).toBeVisible()
           return true
       

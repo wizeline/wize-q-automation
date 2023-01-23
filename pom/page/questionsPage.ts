@@ -1,6 +1,6 @@
 import test, { expect, Locator, Page } from '@playwright/test';
 import { HomePage } from './homePage';
-import { QUESTIONS } from '../data/Constants';
+import { QUESTIONS, TEXTS } from '../data/Constants';
 
 
 export class QuestionsPage {
@@ -47,10 +47,19 @@ export class QuestionsPage {
         .filter({ hasText: `${QUESTIONS.TIME}` })
         .filter({has: this.page.getByRole('link',{ name: `${user}` })})
         .filter({has: this.page.getByRole('link',{ name: `${question}` })})
-        .filter({has: this.page.getByText(`${location}`)}).first(),{timeout: 10000}
+        .filter({has: this.page.getByText(`${location}`)}).first()
         ).toBeVisible()
           return true
       
  }
+
+ async validateQuestionDetails(question,location,department){
+  await expect(this.page.getByText(TEXTS.Q_DETAILS_TEXT)).toBeVisible()
+  await expect(this.page.getByText(location)).toBeVisible()
+  await expect(this.page.getByText(department)).toBeVisible()
+  await expect( this.page.getByText(question)).toBeVisible()
+  return true
+ }
+
 
 }

@@ -36,3 +36,7 @@ export const QUESTIONS = {
     QUESTION_TEST: "This is a test question...??",
     TIME: "a few seconds ago"
 }
+
+export const TEXTS = {
+    Q_DETAILS_TEXT: "Things to keep in mind"
+}

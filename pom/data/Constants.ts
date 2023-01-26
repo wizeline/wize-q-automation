@@ -18,7 +18,8 @@ export const LOCATIONS = {
 }
 
 export const DEPARTMENT = {
-    IDK: "I don't know whom to assign it."
+    IDK: "I don't know whom to assign it.",
+    ACADEMY: "Academy"
 }
 
 export const USERS = {
@@ -27,11 +28,11 @@ export const USERS = {
 }
 
 export const MESSAGES = {
-    QUESTION_CREATED: "Question has been created succesfully!"
+    QUESTION_CREATED: "The question has been created succesfully!"
 }
 
 export const QUESTIONS = {
-    USER_NAME: "undefined undefined",
+    USER_NAME: "WizeQ Test User",
     QUESTION_TEST: "This is a test question...??",
     TIME: "a few seconds ago"
 }

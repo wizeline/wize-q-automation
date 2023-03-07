@@ -5,7 +5,7 @@ import {CREDENTIALS, LOCATIONS,DEPARTMENT,USERS,MESSAGES,QUESTIONS,PEOPLE} from 
    await loginPage.login(CREDENTIALS.EMAIL,CREDENTIALS.PASSWORD)
     })
 
-test.skip('Ask new question with location', async ({questionsPage,homePage}) => {
+test('Ask new question with location', async ({questionsPage,homePage}) => {
   await questionsPage.askQuestion(USERS.STANDAR, DEPARTMENT.ACADEMY,LOCATIONS.GDL,PEOPLE.NA)
   await expect(questionsPage.validateQuestion(QUESTIONS.USER_NAME,QUESTIONS.QUESTION_TEST,LOCATIONS.GDL)).toBeTruthy()
   await expect(homePage.alert).toContainText((MESSAGES.QUESTION_CREATED))

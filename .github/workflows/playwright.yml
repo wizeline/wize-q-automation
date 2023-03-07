@@ -26,6 +26,8 @@ jobs:
         cat .env
     - name: Run Playwright tests
       run: npm run login
+      run: npm run questions
+      run: npm run search
     - uses: actions/upload-artifact@v3
       if: always()
       with:

@@ -28,7 +28,8 @@ export const USERS = {
 }
 
 export const MESSAGES = {
-    QUESTION_CREATED: "The question has been created succesfully!"
+    QUESTION_CREATED: "The question has been created succesfully!",
+    ANON_QUESTION_CREATED: "The anonymous question has been created succesfully!"
 }
 
 export const QUESTIONS = {
@@ -39,4 +40,9 @@ export const QUESTIONS = {
 
 export const TEXTS = {
     Q_DETAILS_TEXT: "Things to keep in mind"
+}
+
+export const PEOPLE = {
+    ACADEMY: "Carolina Navarro",
+    NA: ""
 }

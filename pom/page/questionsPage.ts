@@ -9,6 +9,7 @@ export class QuestionsPage {
   readonly locationDropdown: Locator;
   readonly locationOption: Locator;
   readonly departmentDropdown: Locator;
+  readonly peopleDropdown: Locator;
   readonly askBtn: Locator;
   readonly homePage: HomePage;
 
@@ -19,13 +20,14 @@ export class QuestionsPage {
     this.questionInput = page.getByRole("textbox")
     this.locationDropdown = page.getByText("Location")
     this.departmentDropdown = page.getByText("Deparment")
+    this.peopleDropdown = page.locator("[title='People']")
     this.askBtn = page.locator("#submit-btn")
     this.homePage = new HomePage(page)
 
     
   }
 
- async askQuestion(user,department,location) {
+ async askQuestion(user,department,location,people) {
     await this.homePage.acceptBtn.click()
     await this.homePage.askBtn.click()
     await this.questionInput.type("This is a test question...??")
@@ -34,7 +36,10 @@ export class QuestionsPage {
     await this.departmentDropdown.click()
     await this.page.getByRole("menuitem",{name:`${department}`}).click()
     if(user=="Anonymous"){
-    await this.page.locator('label span').click();
+      await this.peopleDropdown.click()
+      await this.page.getByRole("menuitem",{name:`${people}`}).click()
+      await this.page.locator('label span').click();
+
       }
     await this.askBtn.click()
     await this.page.getByRole("button",{name:'Submit'}).click()
@@ -44,7 +49,7 @@ export class QuestionsPage {
 
  async validateQuestion(user,question,location){
    await expect(this.homePage.questions
-        .filter({ hasText: `${QUESTIONS.TIME}` })
+        //.filter({ hasText: `${QUESTIONS.TIME}` })
         .filter({has: this.page.getByRole('link',{ name: `${user}` })})
         .filter({has: this.page.getByRole('link',{ name: `${question}` })})
         .filter({has: this.page.getByText(`${location}`)}).first()
@@ -52,6 +57,19 @@ export class QuestionsPage {
           return true
       
  }
+ async validateAnonymousQuestion(user,question,location,department){
+  await this.waitForApi()
+  await expect(this.homePage.questions
+        .filter({has: this.page.getByText(`${user}`)})
+        .filter({has: this.page.getByText(`${question}`)})
+       ).toBeVisible()
+       await expect(this.page.getByText(location)).toBeVisible()
+       await expect(this.page.getByText(department)).toBeVisible()
+       await expect( this.page.getByText(question)).toBeVisible()
+         return true
+     
+}
+
 
  async validateQuestionDetails(question,location,department){
   await expect(this.page.getByText(TEXTS.Q_DETAILS_TEXT)).toBeVisible()
@@ -59,6 +77,10 @@ export class QuestionsPage {
   await expect(this.page.getByText(department)).toBeVisible()
   await expect( this.page.getByText(question)).toBeVisible()
   return true
+ }
+
+ async waitForApi(){
+  await this.page.waitForResponse(resp => resp.url().includes('questions') && resp.status() === 200)
  }
 
 

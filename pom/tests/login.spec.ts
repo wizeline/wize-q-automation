@@ -27,6 +27,6 @@ test('login with invalid password', async ({ page }) => {
 test('login with invalid Email & password', async ({ page }) => {
   const loginPage = new LoginPage(page)
   await loginPage.login(CREDENTIALS.INVALID_EMAIL,CREDENTIALS.INVALID_PASSWORD)
-  await expect(loginPage.erroMsg).toBeVisible()
+  await expect(loginPage.erroMsg).toBeVisible() 
 
 })

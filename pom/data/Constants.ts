@@ -29,7 +29,7 @@ export const USERS = {
 
 export const MESSAGES = {
     QUESTION_CREATED: "The question has been created succesfully!",
-    ANON_QUESTION_CREATED: "The anonymous question has been created succesfully!"
+    ANON_QUESTION_CREATED: "The question has been created succesfully!"
 }
 
 export const QUESTIONS = {

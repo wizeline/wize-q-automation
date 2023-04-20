@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "login": "npx playwright test .pom/tests/login.spec.ts",
-    "questions": "npx playwright test .pom/tests/questions.spec.ts",
+    "questions": "npx playwright test .pom/tests/questions.spec.ts --headed",
     "example": "npx playwright test .pom/tests/example.spec.ts --headed",
     "search": "npx playwright test .pom/tests/search.spec.ts --headed"
   },

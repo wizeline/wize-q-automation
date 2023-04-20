@@ -24,10 +24,12 @@ jobs:
         echo PASSWORD=${{ secrets.PASSWORD }} >> .env
         echo BASE_URL=${{ secrets.BASE_URL }} >> .env
         cat .env
-    - name: Run Playwright tests
-      run: npm run login
-      run: npm run questions
-      run: npm run search
+    - name: Run Playwright tests for login
+      run:  npm run login
+    - name: Run Playwright tests for questions
+      run:  npm run questions
+    - name: Run Playwright tests for search
+      run:  npm run search
     - uses: actions/upload-artifact@v3
       if: always()
       with:

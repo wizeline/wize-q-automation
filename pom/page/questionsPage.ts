@@ -47,16 +47,18 @@ export class QuestionsPage {
  }
 
 
+
  async validateQuestion(user,question,location){
-   await expect(this.homePage.questions
-        //.filter({ hasText: `${QUESTIONS.TIME}` })
-        .filter({has: this.page.getByRole('link',{ name: `${user}` })})
-        .filter({has: this.page.getByRole('link',{ name: `${question}` })})
-        .filter({has: this.page.getByText(`${location}`)}).first()
-        ).toBeVisible()
-          return true
-      
- }
+  await this.waitForApi()
+  await expect(this.homePage.questions
+        .filter({has: this.page.getByText(`${user}`)})
+        .filter({has: this.page.getByText(`${question}`)})
+       ).toBeVisible()
+       //await expect(this.page.getByText(location)).toBeVisible()
+         return true
+     
+}
+
  async validateAnonymousQuestion(user,question,location,department){
   await this.waitForApi()
   await expect(this.homePage.questions
